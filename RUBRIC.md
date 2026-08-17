@@ -125,13 +125,15 @@ Hai bài trong [EXTRA.md](EXTRA.md), cần chạy `make seed-extra` trước:
 
 | | Của tôi | Kỳ vọng | ✓/✗ |
 |---|---|---|---|
-| `gold_training_set` — số hàng | | 12.480 | |
-| `gold_training_set` — ổn định 3 lượt | | ✓ | |
-| `gold_feature_daily` — số hàng | | 9.100 | |
-| `gold_feature_daily` — ổn định 3 lượt | | ✓ | |
-| `gold_doc_chunks` — số hàng | | 31.200 | |
-| `quarantine_tickets` — số hàng | | 312 | |
-| `silver_tickets` — số ticket | | 12.480 | |
-| `dbt test` | | pass, > 9 test | |
-| P99 độ trễ đo được | | (ghi số) | |
-| **Tổng verify** | | 4/4 tiêu chí | |
+| `gold_training_set` — số hàng | 12.480 | 12.480 | ✓ |
+| `gold_training_set` — ổn định 3 lượt | ✓, checksum `8dd7c98653` cả 3 lượt | ✓ | ✓ |
+| `gold_feature_daily` — số hàng | 9.100 | 9.100 | ✓ |
+| `gold_feature_daily` — ổn định 3 lượt | ✓, checksum `3db448685c` cả 3 lượt | ✓ | ✓ |
+| `gold_doc_chunks` — số hàng | 31.200 | 31.200 | ✓ |
+| `quarantine_tickets` — số hàng | 312 | 312 | ✓ |
+| `silver_tickets` — số ticket | 12.480 | 12.480 | ✓ |
+| `dbt test` | 11/11 pass | pass, > 9 test | ✓ |
+| P99 độ trễ đo được | 2,73 ngày | (ghi số) | ✓ |
+| **Tổng verify** | 4/4 tiêu chí | 4/4 tiêu chí | ✓ |
+| **Thưởng A — dashboard** | rows scanned `5.000.000 → 136.934` (36,5×), files `5.000 → 14`, hash không đổi | giảm ≥ 10×, hash không đổi, files giảm | ✓ |
+| **Thưởng B — crash-test** | đạt; 20.000 hàng / 20.000 event_id, không mất, không trùng, C == A | `make crash-test` đạt | ✓ |
