@@ -1,13 +1,43 @@
 # Báo cáo LAB 17 — Data Pipeline Engineering
 
-**Họ tên:** …  **Lớp:** AICB-P2T2  **Ngày:** …
+**Họ tên:** Trương Đình Khoa  **Lớp:** K3-Track2-E403  **Ngày:** 17/8/2026
 
 ---
 
 ## 0 · Kết quả `make verify`
 
 <details>
-<summary>Dán nguyên output ba lần chạy vào đây</summary>
+<summary>
+   make verify 
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  LAB 17 · make verify
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  run 1/3 … 18.7s
+  run 2/3 … 19.7s
+  run 3/3 … 19.4s
+
+  BẢNG                  ỔN ĐỊNH          SỐ HÀNG     KỲ VỌNG   GHI CHÚ
+  ──────────────────────────────────────────────────────────────────────────
+  gold_training_set     ✗ FAIL            38,750      12,480   ✗ thừa 26,270 hàng
+  gold_feature_daily    ✓ ok               8,645       9,100   ✗ thiếu 455 hàng
+  gold_doc_chunks       ✓ ok              31,200      31,200   ✓
+  quarantine_tickets    ✓ ok                   0         312   ✗ thiếu 312 hàng
+
+  CHECKSUM từng lượt
+  ──────────────────────────────────────────────────────────────────────────
+  gold_training_set     7c461563f4    d11657ff21    2b76a4f850   ✗
+  gold_feature_daily    4eee63cd82    4eee63cd82    4eee63cd82   ✓
+  gold_doc_chunks       92d8e50131    92d8e50131    92d8e50131   ✓
+  quarantine_tickets    empty         empty         empty        ✓
+
+  KIỂM TRA KHÁC
+  ──────────────────────────────────────────────────────────────────────────
+  dbt test                                    ✓ 9/9 pass
+  silver_tickets.priority ∈ 1..4, không NULL  ✗ 6,606 hàng sai
+  quarantine_tickets đúng số bản ghi lỗi      ✗ 0 / 312
+  gold_training_set: 1 hàng / 1 ticket        ✗ 12,480 ticket bị lặp
+</summary>
 
 ```
 (dán output make verify)
@@ -64,7 +94,7 @@ pipeline dừng khi gặp bản ghi lỗi?
 
 ---
 
-## 4 · *(mở rộng, không bắt buộc)* Bài trong EXTRA.md
+## 4. Mở rộng bài trong EXTRA.md
 
 | | |
 |---|---|
