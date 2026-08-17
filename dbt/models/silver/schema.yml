@@ -20,7 +20,7 @@ models:
     #   2. bỏ comment khối tests: ở cột priority bên dưới và điền `values`
     config:
       contract:
-        enforced: false # <- TODO(nhiệm vụ 3): đổi thành true
+        enforced: true
 
     columns:
       - name: ticket_id
@@ -36,14 +36,11 @@ models:
       - name: priority
         data_type: integer
         description: "1 = urgent … 4 = low. Contract với team backend."
-        # TODO(nhiệm vụ 3): bỏ comment bốn dòng dưới và điền danh sách giá trị
-        # hợp lệ. `quote: false` vì đây là số, không phải chuỗi.
-        #
-        # tests:
-        #   - not_null
-        #   - accepted_values:
-        #       values: [...]
-        #       quote: false
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2, 3, 4]
+              quote: false
       - name: category
         data_type: varchar
       - name: channel

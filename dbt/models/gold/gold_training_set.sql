@@ -26,6 +26,8 @@
 
 {{ config(
     materialized     = 'incremental',
+    unique_key       = 'ticket_id',
+    incremental_strategy = 'merge',
     on_schema_change = 'fail'
 ) }}
 
